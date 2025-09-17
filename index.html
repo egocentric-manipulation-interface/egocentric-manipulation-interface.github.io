@@ -225,6 +225,54 @@
       overflow: visible;
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.sidebar a');
+      const sections = Array.from(document.querySelectorAll('main section'));
+
+      function updateActiveLink() {
+        const scrollY = window.scrollY + 100;
+        let current = sections[0];
+
+        for (const section of sections) {
+          if (section.offsetTop <= scrollY) {
+            current = section;
+          }
+        }
+
+        links.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current.id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveLink);
+      updateActiveLink();
+
+    // Physical rollouts main video selector logic
+    const mainPhysicalVideo = document.getElementById('main-physical-video');
+    const physicalThumbnails = document.querySelectorAll('#physical-video-thumbnails video');
+    if (mainPhysicalVideo && physicalThumbnails.length > 0) {
+      physicalThumbnails.forEach((vid, idx) => {
+        vid.addEventListener('click', () => {
+          const src = vid.getAttribute('data-video');
+          if (src) {
+            mainPhysicalVideo.querySelector('source').src = src;
+            mainPhysicalVideo.load();
+            mainPhysicalVideo.play();
+            // Highlight selected
+            physicalThumbnails.forEach(v => v.style.outline = '');
+            vid.style.outline = '3px solid var(--accent)';
+          }
+        });
+      });
+      // Highlight the first by default
+      physicalThumbnails[0].style.outline = '3px solid var(--accent)';
+    }
+  });
+  </script>
   <body>
     <nav class="sidebar">
       
