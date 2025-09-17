@@ -1,1 +1,1 @@
-# Real2Render2Real
+# EgoMI
