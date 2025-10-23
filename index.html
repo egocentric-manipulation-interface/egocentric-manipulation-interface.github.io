@@ -449,6 +449,30 @@
             <video data-video="data/Rollout_Videos/EgoMI_Shelf_Task_1.mp4" autoplay muted loop playsinline src="data/Rollout_Videos/EgoMI_Shelf_Task_1.mp4" style="cursor:pointer;"></video>
             <video data-video="data/Rollout_Videos/EgoMI_TableTop_1_Compress.mp4" autoplay muted loop playsinline src="data/Rollout_Videos/EgoMI_TableTop_1_Compress.mp4" style="cursor:pointer;"></video>
           </div>
+
+          <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+            <div class="iframe-container" style="margin-bottom: 0.75rem;">
+              <iframe id="main-iframe" src="https://uynitsuj.github.io/viser-client/?playbackPath=https://uynitsuj.github.io/viser-client/?playbackPath=https://uynitsuj.github.io/recor[…]aLookAt=0.212,0.032,0.923&initialCameraUp=0.000,0.000,1.000" style="width: 100%; max-width: 100%; height: 460px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);"></iframe>
+              <div class="click-and-move-overlay">
+                <img src="data/drag_icon.png" alt="" class="inline-image">
+                Click and move me!
+                <img src="data/drag_icon.png" alt="" class="inline-image">
+              </div>
+            </div>
+            <div class="carousel-wrapper">
+              <div class="carousel-arrow left" id="iframe-carousel-left">&#8592;</div>
+              <div class="video-carousel" id="iframe-thumbnails">
+                <video data-iframe="0" autoplay muted loop playsinline src="data/Rollout_Videos/egomi1_top_camera-images-left_rgb.mp4" style="cursor:pointer;"></video>
+                <!-- <video data-iframe="1" autoplay muted loop playsinline src="data/demo_vids/package_demo.mp4" style="cursor:pointer;"></video>
+                <video data-iframe="2" autoplay muted loop playsinline src="data/demo_vids/drawer_reversed_demo.mp4" style="cursor:pointer;"></video>
+                <video data-iframe="3" autoplay muted loop playsinline src="data/demo_vids/mug_demo.mp4" style="cursor:pointer;"></video>
+                <video data-iframe="4" autoplay muted loop playsinline src="data/demo_vids/tiger_demo.mp4" style="cursor:pointer;"></video> -->
+              </div>
+              <div class="carousel-arrow right" id="iframe-carousel-right">&#8594;</div>
+            </div>
+            <div class="carousel-hint">Click a thumbnail to change the interactive view above.</div>
+          </div>
+
       </section>
   
       <section id="hardware">
