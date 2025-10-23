@@ -413,7 +413,9 @@
         </div>
       </section>
       <section id="abstract">
-        <h1>Abstract</h1> 
+        <!-- <h1>Abstract</h1>  -->
+        <h1><span class="toggle-btn" onclick="toggleAbstract()">Abstract &#9662</span><span id="expand-hint" style="font-size: 0.8rem; margin-left: 8px; color: #424242;">(click to expand)</span></h1>
+        <div id="abstract-content" style="display: none; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out;">
         Imitation learning from human demonstrations
         offers a promising approach for robot skill acquisition, but
         egocentric human data introduces fundamental challenges due
@@ -436,6 +438,28 @@
         coordinated hand-eye learning with EgoMI effectively bridges
         the human-robot embodiment gap for robust imitation learning
         on semi-humanoid embodiments.
+        </div>
+        <script>
+          function toggleAbstract() {
+            const content = document.getElementById('abstract-content');
+            const btn = document.querySelector('.toggle-btn');
+            const hint = document.getElementById('expand-hint');
+            if (content.style.display === 'none') {
+              content.style.display = 'block';
+              setTimeout(() => {
+                content.style.maxHeight = content.scrollHeight + "px";
+              }, 10);
+              btn.innerHTML = 'Abstract &#9652';
+              hint.style.display = 'none'; // Hide the hint after expanding
+            } else {
+              content.style.maxHeight = '0';
+              setTimeout(() => {
+                content.style.display = 'none';
+              }, 500); // Wait for transition to complete
+              btn.innerHTML = 'Abstract &#9662';
+            }
+          }
+        </script>
       </section>
   
       <section id="realrollouts">
