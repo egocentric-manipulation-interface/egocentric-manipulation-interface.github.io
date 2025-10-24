@@ -353,6 +353,31 @@
       window.addEventListener('scroll', updateActiveLink);
       updateActiveLink();
 
+      // Main iframe swap logic for thumbnails
+      const mainIframe = document.getElementById('main-iframe');
+      const thumbnailVideos = document.querySelectorAll('#iframe-thumbnails video');
+      const iframeSrcs = [
+        'https://uynitsuj.github.io/viser-client/?playbackPath=https://uynitsuj.github.io/recordings/egomi/recording_20251022_210201.viser&initialCameraPosition=-0.480,1.004,1.674&initialCameraLookAt=0.212,0.032,0.923&initialCameraUp=0.000,0.000,1.000',
+        'https://uynitsuj.github.io/viser-client/?playbackPath=https://uynitsuj.github.io/recordings/egomi/recording_20251024_112052.viser&initialCameraPosition=-0.480,1.004,1.674&initialCameraLookAt=0.212,0.032,0.923&initialCameraUp=0.000,0.000,1.000',
+        'https://uynitsuj.github.io/viser-client/?playbackPath=https://uynitsuj.github.io/recordings/egomi/recording_20251024_112206.viser&initialCameraPosition=-0.480,1.004,1.674&initialCameraLookAt=0.212,0.032,0.923&initialCameraUp=0.000,0.000,1.000',
+        'https://uynitsuj.github.io/viser-client/?playbackPath=https://uynitsuj.github.io/recordings/egomi/recording_20251024_112328.viser&initialCameraPosition=-0.480,1.004,1.674&initialCameraLookAt=0.212,0.032,0.923&initialCameraUp=0.000,0.000,1.000',
+        'https://uynitsuj.github.io/viser-client/?playbackPath=https://uynitsuj.github.io/recordings/egomi/recording_20251024_112608.viser&initialCameraPosition=-0.480,1.004,1.674&initialCameraLookAt=0.212,0.032,0.923&initialCameraUp=0.000,0.000,1.000',
+      ];
+      if (mainIframe && thumbnailVideos.length === iframeSrcs.length) {
+        thumbnailVideos.forEach((vid, idx) => {
+          vid.addEventListener('click', () => {
+            mainIframe.src = iframeSrcs[idx];
+            // Highlight the selected video
+            thumbnailVideos.forEach(v => { v.style.outline = ''; v.classList.remove('selected-thumb'); });
+            vid.style.outline = '3px solid var(--accent)';
+            vid.classList.add('selected-thumb');
+          });
+        });
+        // Highlight the first by default
+        thumbnailVideos[0].style.outline = '3px solid var(--accent)';
+        thumbnailVideos[0].classList.add('selected-thumb');
+      }
+
     // Physical rollouts main video selector logic
     const mainPhysicalVideo = document.getElementById('main-physical-video');
     const physicalThumbnails = document.querySelectorAll('#physical-video-thumbnails video');
@@ -487,10 +512,11 @@
               <div class="carousel-arrow left" id="iframe-carousel-left">&#8592;</div>
               <div class="video-carousel" id="iframe-thumbnails">
                 <video data-iframe="0" autoplay muted loop playsinline src="data/Rollout_Videos/egomi1_top_camera-images-left_rgb.mp4" style="cursor:pointer;"></video>
-                <!-- <video data-iframe="1" autoplay muted loop playsinline src="data/demo_vids/package_demo.mp4" style="cursor:pointer;"></video>
-                <video data-iframe="2" autoplay muted loop playsinline src="data/demo_vids/drawer_reversed_demo.mp4" style="cursor:pointer;"></video>
-                <video data-iframe="3" autoplay muted loop playsinline src="data/demo_vids/mug_demo.mp4" style="cursor:pointer;"></video>
-                <video data-iframe="4" autoplay muted loop playsinline src="data/demo_vids/tiger_demo.mp4" style="cursor:pointer;"></video> -->
+                <video data-iframe="1" autoplay muted loop playsinline src="data/Rollout_Videos/egomi2_top_camera-images-left_rgb.mp4" style="cursor:pointer;"></video>
+                <video data-iframe="2" autoplay muted loop playsinline src="data/Rollout_Videos/egomi3_top_camera-images-left_rgb.mp4" style="cursor:pointer;"></video>
+                <video data-iframe="3" autoplay muted loop playsinline src="data/Rollout_Videos/egomi4_top_camera-images-left_rgb.mp4" style="cursor:pointer;"></video>
+                <video data-iframe="4" autoplay muted loop playsinline src="data/Rollout_Videos/egomi5_top_camera-images-left_rgb.mp4" style="cursor:pointer;"></video>
+
               </div>
               <div class="carousel-arrow right" id="iframe-carousel-right">&#8594;</div>
             </div>
