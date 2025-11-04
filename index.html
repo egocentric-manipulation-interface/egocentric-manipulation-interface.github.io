@@ -527,17 +527,19 @@
   
       <section id="hardware">
         <h2>EgoMI Device</h2>
-        Section work in progress...
+        <img src="data/egomi_device.png" alt="">
+        The EgoMI device records egocentric human demonstrations, capturing synchronized head, hand, and visual data to bridge the human-robot embodiment gap. It combines a Meta Quest 3S headset for head and hand tracking with a camera mounted above the headset for egocentric head observation and neck action retargeting. Each hand controller includes a small wrist-mounted camera and a standard mechanical flange mount for a robot gripper. During collection, the controller triggers actuate the drive-by-wire grippers, letting any user perform real bimanual manipulation tasks naturally. The resulting dataset consists of synchronized head and hand motion, and video streams that can be retargeted directly to robots with no teleoperation or on-embodiment data required.      
       </section>
   
       <section id="sparks">
         <h2>Spatial Aware Robust Keyframe Selection (SPARKS)</h2>
-          Section work in progress...
+        SPARKS is a lightweight training-free keyframe selection algorithm that equips imitation-learning policies with spatial memory. Human head motion produces rapid viewpoint shifts, causing critical task information to appear under past perspectives. SPARKS scores and selects keyframes based on viewpoint novelty, temporal recency, and motion smoothness, retaining only the most informative head-camera images. This memory buffer provides the policy with essential spatial context across time—without recurrent or learned models. SPARKS allows robots to recall past viewpoints during manipulation, yielding more stable, context-aware performance under occlusion, motion, and long-horizon tasks.
       </section>
       
       <section id="randomization">
         <h2>Experimental Randomization Distribution</h2>
-        Section work in progress...
+        
+        <img src="data/randomization.png" alt="">
       </section>
 
 
